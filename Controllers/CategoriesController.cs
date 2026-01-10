@@ -13,7 +13,7 @@ namespace MVCCourse.Controllers
         }
         public IActionResult Edit(int? id)
         {
-            var category = new Category { Id = id.HasValue ? id.Value : 0 };
+            var category = CategoryRepository.GetCategoryById(id.HasValue?id.Value:0);
             return View(category);
         }
     }
