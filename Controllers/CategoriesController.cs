@@ -5,9 +5,11 @@ namespace MVCCourse.Controllers
 {
     public class CategoriesController : Controller
     {
+        
         public IActionResult Index()
         {
-            return View();
+            var categories = CategoryRepository.GetCategories();
+            return View(categories);
         }
         public IActionResult Edit(int? id)
         {
