@@ -40,7 +40,7 @@ namespace MVCCourse.Models
         {
             if (Id != category.Id) return;
 
-            var categoryToUpdate = GetCategoryById(Id);
+            var categoryToUpdate = _categories.FirstOrDefault(x => x.Id == Id);
             if (categoryToUpdate != null)
             {
                 categoryToUpdate.Name = category.Name;
