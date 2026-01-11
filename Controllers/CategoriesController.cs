@@ -21,8 +21,12 @@ namespace MVCCourse.Controllers
 
         public IActionResult Edit(Category category)
         {
-            CategoryRepository.UpdateCategory(category.Id, category);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                CategoryRepository.UpdateCategory(category.Id, category);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
         }
     }
 }
